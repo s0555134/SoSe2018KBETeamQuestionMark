@@ -1,5 +1,0 @@
-Gesamtzahl der Methoden der Klasse: 6
-GesamtZahl der annortierten Methoden: 5
-Folgende MEthoden kontnen nciht ausgeführtw erden: 
-- lulkind3
-

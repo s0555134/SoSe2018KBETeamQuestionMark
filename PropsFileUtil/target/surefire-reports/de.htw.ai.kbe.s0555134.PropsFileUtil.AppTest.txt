@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: de.htw.ai.kbe.s0555134.PropsFileUtil.AppTest
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.051 sec
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.084 sec
