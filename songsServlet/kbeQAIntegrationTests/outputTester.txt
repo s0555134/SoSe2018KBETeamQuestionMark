@@ -1,0 +1,44 @@
+--- REQUESTING ALL SONGS ------------
+[{"id":1,"title":"Can?t Stop the Feeling","artist":"Justin Timberlake","album":"Trolls","released":2016},{"id":2,"title":"Mom","artist":"Meghan Trainor, Kelli Trainor","album":"Thank You","released":2016},{"id":3,"title":"Team","artist":"Iggy Azalea","album":null,"released":2016},{"id":4,"title":"Ghostbusters (I'm not a fraid)","artist":"Fall Out Boy, Missy Elliott","album":"Ghostbusters","released":2016},{"id":5,"title":"Bad Things","artist":"Camila Cabello, Machine Gun Kelly","album":"Bloom","released":2017},{"id":6,"title":"I Took a Pill in Ibiza","artist":"Mike Posner","album":"At Night, Alone.","released":2016},{"id":7,"title":"i hate u, i love u","artist":"Gnash","album":"Top Hits 2017","released":2017},{"id":8,"title":"No","artist":"Meghan Trainor","album":"Thank You","released":2016},{"id":9,"title":"Private Show","artist":"Britney Spears","album":"Glory","released":2016},{"id":10,"title":"7 Years","artist":"Lukas Graham","album":"Lukas Graham (Blue Album)","released":2015}]
+ 
+-------------------------------------------------------------------------------------------------
+--- REQUESTING SONG NUMBER 7 --------
+{"id":7,"title":"i hate u, i love u","artist":"Gnash","album":"Top Hits 2017","released":2017}
+=  
+-------------------------------------------------------------------------------------------------
+--- POSTING A SONG ------------------
+"Added song: 'a new title' , id =11"=  
+-------------------------------------------------------------------------------------------------
+--- REQUESTING THE NEW SONG NUMBER --
+{"id":11,"title":"a new title","artist":"YOU","album":"YOU","released":2016}
+=  
+-------------------------------------------------------------------------------------------------
+--- POSTING ANOTHER SONG ------------
+"Added song: 'a new title' , id =12"=  
+-------------------------------------------------------------------------------------------------
+--- BAD USER REQUESTS ---------------
+--- GET WITH NON-EXISTING ID ---------------
+Fehler, Gesuchte Id nicht vorhanden in der Songliste
+=  
+-------------------------------------------------------------------------------------------------
+--- GET WITH BAD ID ---------------
+=  
+-------------------------------------------------------------------------------------------------
+--- GET WITH NO PARAM ---------------
+Keine Elemente
+=  
+-------------------------------------------------------------------------------------------------
+--- POSTING A NON-JSON LOVE SONG ----
+"Added song: 'a new title' , id =13"=  
+-------------------------------------------------------------------------------------------------
+--- POSTING AN EMPTY FILE -----------
+"Added song: 'a new title' , id =14"=  
+-------------------------------------------------------------------------------------------------
+--- SHUTTING DOWN TOMCAT -----------
+Using CATALINA_BASE:   /home/s0555385/apache-tomcat-8.5.23/
+Using CATALINA_HOME:   /home/s0555385/apache-tomcat-8.5.23/
+Using CATALINA_TMPDIR: /home/s0555385/apache-tomcat-8.5.23//temp
+Using JRE_HOME:        /usr/lib/jvm/java-8-oracle
+Using CLASSPATH:       /home/s0555385/apache-tomcat-8.5.23//bin/bootstrap.jar:/home/s0555385/apache-tomcat-8.5.23//bin/tomcat-juli.jar
+NUMBER OF SONGS IN DB-FILE: 
+14
