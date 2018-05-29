@@ -42,7 +42,7 @@ public class SongsStoreServlet extends HttpServlet {
 
 	private static final String APPLICATION_JSON = "application/json";
 	
-	private static final String APPLICATION_XML = "application/xml";
+	private static final String APPLICATION_XML = "text/xml";
 
 	private static final String TEXT_HTML = "text/html";
 
@@ -63,6 +63,8 @@ public class SongsStoreServlet extends HttpServlet {
 	private String songFilename = null;
 
 	private Map<Integer, Song> songStore = null;
+	
+	private Map<Integer, Songs> songStoreXml = null;
 
 	private AtomicInteger currentId = null;
 
@@ -139,14 +141,31 @@ public class SongsStoreServlet extends HttpServlet {
 
 		PrintWriter out = response.getWriter();
 		
-//		if(request.getContentType()== APPLICATION_XML) {
+		
 //			 try {
-//				writeSongsToXML(song, "songs.xml");
+//				 
+//				 Songs xmlSongs = new Songs();
+//				 xmlSongs = oMap.readValue(jsonBody, Songs.class);
+//				 
+//				 
+//				 id = currentId.incrementAndGet();
+//				 xmlSongs.setId(id);
+//				 songStoreXml.put(id,  xmlSongs);
+//				 
+//				 response.setContentType(TEXT_PLAIN);
+//				 
+//				 out.print(String.format(DO_POST_SUCCESS, xmlSongs.getTitle(), xmlSongs.getArtist(), xmlSongs.getAlbum(),
+//						 xmlSongs.getReleased(), xmlSongs.getId()));
+//
+//					out.flush();
+//				 
+//				writeSongsToXML(xmlSongs, "songs.xml");
 //			} catch (JAXBException e) {
 //				// TODO Auto-generated catch block
 //				e.printStackTrace();
 //			}
-//		}
+		
+		
 		
 		
 		try {
@@ -171,7 +190,7 @@ public class SongsStoreServlet extends HttpServlet {
 
 		}
 	}
-
+	
 	// @Override
 	// public void doPut(HttpServletRequest request, HttpServletResponse response)
 	// throws IOException {
@@ -321,14 +340,14 @@ public class SongsStoreServlet extends HttpServlet {
 		return message;
 	}
 	
-	static void writeSongsToXML(Song songs, String filename) throws JAXBException, FileNotFoundException, IOException {
-        JAXBContext context = JAXBContext.newInstance(Song.class, Song.class);
-        Marshaller marshaller = context.createMarshaller();
-        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-        try (OutputStream os = new BufferedOutputStream(new FileOutputStream(filename))) {
-            marshaller.marshal(songs, os);
-        }
-    }
+	  static void writeSongsToXML(Songs songs, String filename) throws JAXBException, FileNotFoundException, IOException {
+	        JAXBContext context = JAXBContext.newInstance(Songs.class, Song.class);
+	        Marshaller marshaller = context.createMarshaller();
+	        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+	        try (OutputStream os = new BufferedOutputStream(new FileOutputStream(filename))) {
+	            marshaller.marshal(songs, os);
+	        }
+	    }
 	
 	 static Song readXMLToSongs(String filename) throws JAXBException, FileNotFoundException, IOException {
 	        JAXBContext context = JAXBContext.newInstance(Song.class);

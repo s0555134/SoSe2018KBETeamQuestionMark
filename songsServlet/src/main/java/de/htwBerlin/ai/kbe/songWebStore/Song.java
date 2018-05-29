@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 
-@XmlRootElement
+
 public class Song {
 
 	private Integer id;
@@ -28,7 +28,7 @@ public class Song {
 	
 
 
-	@XmlElement
+	
 	public Integer getId() {
 		return id;
 	}
@@ -38,19 +38,19 @@ public class Song {
 	}
 	
 
-	@XmlAttribute
+	
 	public String getTitle() {
 		return title;
 	}
-	@XmlElement
+	
 	public String getArtist() {
 		return artist;
 	}
-	@XmlElement
+	
 	public String getAlbum() {
 		return album;
 	}
-	@XmlElement
+
 	public Integer getReleased() {
 		return released;
 	}
