@@ -1,39 +1,63 @@
 #! /bin/sh
 
-echo "--- REQUESTING ALL SONGS ------------"
-curl -X GET -H "Accept: application/json" -v "http://localhost:8080/songsServlet?all"
+echo "--- REQUESTING ALL SONGS IN JSON ------------"
+curl -X GET \
+     -H "Accept: application/json" \
+     -v "http://localhost:8080/songsServlet?all"
 echo " "
 echo "-------------------------------------------------------------------------------------------------"
 
-echo "--- REQUESTING SONG NUMBER 7 --------"
+echo "--- REQUESTING ALL SONGS IN XML ------------"
 curl -X GET \
-     -H "Accept: application/json" \
+     -H "Accept: application/xml" \
+     -v "http://localhost:8080/songsServlet?all"
+echo " "
+echo "-------------------------------------------------------------------------------------------------"
+
+echo "--- REQUESTING SONG NUMBER 7 IN XML --------"
+curl -X GET \
+     -H "Accept: application/xml" \
      -v "http://localhost:8080/songsServlet?songId=7"
 echo = " "
 echo "-------------------------------------------------------------------------------------------------"
 
-echo "--- POSTING A SONG ------------------"
-curl -X POST -H "Content-Type: application/json" -H "Accept: test/plain" -d "@einSong.json"  -v "http://localhost:8080/songsServlet"
+echo "--- POSTING A SONG IN JSON ------------------"
+curl -X POST \
+     -H "Content-Type: application/json" \
+     -d "@einSong.json" \
+     -v "http://localhost:8080/songsServlet"
 echo = " "
 echo "-------------------------------------------------------------------------------------------------"
 
-echo "--- REQUESTING THE NEW SONG NUMBER --"
+echo "--- REQUESTING THE NEW SONG NUMBER IN JSON --"
 curl -X GET \
      -H "Accept: application/json" \
      -v "http://localhost:8080/songsServlet?songId=11"
 echo = " "
 echo "-------------------------------------------------------------------------------------------------"
 
-echo "--- POSTING ANOTHER SONG ------------"
+echo "--- POSTING ANOTHER SONG IN XML ------------"
 curl -X POST \
-     -H "Content-Type: application/json" \
-     -H "Accept: test/plain" \
-     -d "@einZweiterSong.json" \
+     -H "Content-Type: application/xml" \
+     -d "@einZweiterSong.xml" \
      -v "http://localhost:8080/songsServlet"
 echo = " "
 echo "-------------------------------------------------------------------------------------------------"
 
-echo "--- BAD USER REQUESTS ---------------"
+echo "--- BAD REQUESTS ---------------"
+
+echo "--- GET WITH NO-ACCEPT ---------------"
+curl -X GET \
+     -v "http://localhost:8080/songsServlet?songId=7"
+echo = " "
+echo "-------------------------------------------------------------------------------------------------"
+
+echo "--- GET WITH BAD ACCEPT ---------------"
+curl -X GET \
+     -H "Accept: test/stuff" \
+     -v "http://localhost:8080/songsServlet?songId=7"
+echo = " "
+echo "-------------------------------------------------------------------------------------------------"
 
 echo "--- GET WITH NON-EXISTING ID ---------------"
 curl -X GET \
@@ -56,28 +80,13 @@ curl -X GET \
 echo = " "
 echo "-------------------------------------------------------------------------------------------------"
 
-echo "--- POSTING A NON-JSON LOVE SONG ----"
+echo "--- POSTING A NON-XML LOVE SONG ----"
 curl -X POST \
-     -H "Content-Type: application/json" \
-     -H "Accept: test/plain" \
-     -d "@notALoveSong.txt" \
-     -v "http://localhost:8080/songsServlet"
-echo = " "
-echo "-------------------------------------------------------------------------------------------------"
-
-echo "--- POSTING AN EMPTY FILE -----------"
-curl -X POST \
-     -H "Content-Type: application/json" \
-     -H "Accept: test/plain" \
+     -H "Content-Type: application/xml" \
      -d "@emptyFile.txt" \
      -v "http://localhost:8080/songsServlet"
 echo = " "
 echo "-------------------------------------------------------------------------------------------------"
 
 echo "--- SHUTTING DOWN TOMCAT -----------"
-$CATALINA_HOME/bin/shutdown.sh
-
-sleep 1
-
-echo "NUMBER OF SONGS IN DB-FILE: "
-cat $CATALINA_HOME/webapps/songsServlet/WEB-INF/classes/songs.json | grep \"id\" | wc -l
+#$CATALINA_HOME/bin/shutdown.sh
