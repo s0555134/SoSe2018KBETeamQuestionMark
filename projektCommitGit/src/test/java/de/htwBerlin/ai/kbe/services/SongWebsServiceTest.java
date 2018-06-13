@@ -25,6 +25,7 @@ public class SongWebsServiceTest extends JerseyTest {
 
 	@Test
 	public void putSongWithExistingIdJsonShouldSuccess() {
+
 		Song song = new Song.Builder().artist("Meghan Trainor, Kelli Trainor").title("Mom").album("Thank You").id(2)
 				.released(2016).build();
 
@@ -33,12 +34,15 @@ public class SongWebsServiceTest extends JerseyTest {
 		Assert.assertEquals(204, response.getStatus());
 	}
 
+	
+
 	@Test
 	public void putSongWithExistingIdXMLShouldSuccess() {
-		Song song = new Song.Builder().artist("Meghan Trainor, Kelli Trainor").title("Mom").album("Thank You").id(8)
+		Song song = new Song.Builder().artist("Meghan Trainor, Kelli Trainor").title("Mom").album("Thank You").id(2)
 				.released(2016).build();
 
 		Response response = target("/songs/6").request().put(Entity.xml(song));
+
 
 		Assert.assertEquals(204, response.getStatus());
 	}

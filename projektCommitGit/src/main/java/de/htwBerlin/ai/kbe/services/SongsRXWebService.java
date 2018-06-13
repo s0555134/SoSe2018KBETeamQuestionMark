@@ -82,6 +82,7 @@ public class SongsRXWebService {
 	@POST
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	@Produces(MediaType.TEXT_PLAIN)
+
 	public Response createSong( Song song, @HeaderParam("Authorization") String token) throws IOException {
 		if (token == null) {
 			return Response.status(Response.Status.UNAUTHORIZED).entity("You don't have any permission").build();
@@ -102,6 +103,7 @@ public class SongsRXWebService {
 		return Response.status(Response.Status.NOT_FOUND).entity(Response.Status.NOT_FOUND + "Failed to add a new song\n").build();
 	}
 
+
 	
 	/**
 	 * Updated einen existierenden Song
@@ -115,14 +117,12 @@ public class SongsRXWebService {
 	@Path("/{id}")
 	@Produces(MediaType.TEXT_PLAIN)
 	public Response updateSong(@PathParam("id") Integer id, Song song) {
-//		if (token == null)
-//			return Response.status(Response.Status.UNAUTHORIZED).entity("You don't have any permission").build();
 		if (SongsRXStore.getInstance().updateSong(id, song)) {
 			boolean updateSong = false;
 			updateSong = SongsRXStore.getInstance().updateSong(id, song);
 			System.out.println("PutMethode");
 			
-			return Response.status(Response.Status.NO_CONTENT).entity(Response.Status.NO_CONTENT + String.format(": Song with id %d updated"+ "onSucces", id) + "onSucces").build();
+			return Response.status(Response.Status.NO_CONTENT).entity(Response.Status.NO_CONTENT + String.format(": Song with id %d updated\n"+ "onSucces", id)).build();
 		}	else {
 			
 			System.out.println("PutMethodeelse");
@@ -142,7 +142,8 @@ public class SongsRXWebService {
 		if (token == null)
 			return Response.status(Response.Status.UNAUTHORIZED).entity("You don't have any permission").build();
 		if(SongsRXStore.getInstance().deleteSong(id))
-			return Response.status(Response.Status.NO_CONTENT).entity(Response.Status.NO_CONTENT + String.format("Song with id %d deleted", id) +"deleted").build();
+			return Response.status(Response.Status.NO_CONTENT).entity(Response.Status.NO_CONTENT + String.format("Song with id %d deleted", id)).build();
+
 
 		return Response.status(Response.Status.NOT_FOUND).entity(Response.Status.NOT_FOUND + String.format("Song with id %d failed to be deleted", id)).build();
 	}

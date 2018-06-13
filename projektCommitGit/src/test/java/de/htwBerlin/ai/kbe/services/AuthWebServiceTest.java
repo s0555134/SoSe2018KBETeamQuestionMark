@@ -12,8 +12,7 @@ import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Test;
 
-import de.htwBerlin.ai.kbe.bean.User;
-import de.htwBerlin.ai.kbe.storage.UserStore;
+
 
 public class AuthWebServiceTest extends JerseyTest {
 

@@ -81,7 +81,11 @@ public class UserStore {
 		try {
 			return SINGLETON == null ? SINGLETON = new UserStore(userFileName) : SINGLETON;
 		} catch (IOException e) {
+
 			e.printStackTrace(System.out);
+
+			
+
 			return null;
 		}
 	}

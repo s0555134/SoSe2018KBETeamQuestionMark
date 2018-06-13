@@ -37,6 +37,7 @@ public class AuthWebService {
 	@Produces({ MediaType.TEXT_PLAIN })
 	public Response generateAuth(@QueryParam("userId") String userId) {
 
+
 		
 		
 //		if (tokenDB.containsValue(userId)) {
@@ -51,17 +52,17 @@ public class AuthWebService {
 //			return Response.status(Response.Status.FORBIDDEN)
 //					.entity(Response.Status.FORBIDDEN + "Security Token allready given" + "  " + token).build();
 //		}
-		
-		
-		
+	
+
 		UserStore u=UserStore.getInstance();
-		
+		if(u==null)
+			throw new NullPointerException("Nullpointer");
 		User user = u.getUserById(userId);
 		if (user != null) {
 			String token = request.getSession().getId();
 			
 			tokenDB.put(token, userId);
-		
+
 			return Response.status(Response.Status.OK).entity("Token: " + token ).build();
 		} else {
 			return Response.status(Response.Status.FORBIDDEN)

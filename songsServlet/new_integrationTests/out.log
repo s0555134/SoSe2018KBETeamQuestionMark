@@ -1,0 +1,47 @@
+--- REQUESTING ALL SONGS IN JSON ------------
+[{"id":1,"title":"Can?t Stop the Feeling","artist":"Justin Timberlake","album":"Trolls","released":2016},{"id":2,"title":"Mom","artist":"Meghan Trainor, Kelli Trainor","album":"Thank You","released":2016},{"id":3,"title":"Team","artist":"Iggy Azalea","album":null,"released":2016},{"id":4,"title":"Ghostbusters (I'm not a fraid)","artist":"Fall Out Boy, Missy Elliott","album":"Ghostbusters","released":2016},{"id":5,"title":"Bad Things","artist":"Camila Cabello, Machine Gun Kelly","album":"Bloom","released":2017},{"id":6,"title":"I Took a Pill in Ibiza","artist":"Mike Posner","album":"At Night, Alone.","released":2016},{"id":7,"title":"i hate u, i love u","artist":"Gnash","album":"Top Hits 2017","released":2017},{"id":8,"title":"No","artist":"Meghan Trainor","album":"Thank You","released":2016},{"id":9,"title":"Private Show","artist":"Britney Spears","album":"Glory","released":2016},{"id":10,"title":"7 Years","artist":"Lukas Graham","album":"Lukas Graham (Blue Album)","released":2015}]
+ 
+-------------------------------------------------------------------------------------------------
+--- REQUESTING ALL SONGS IN XML ------------
+[{"id":1,"title":"Can?t Stop the Feeling","artist":"Justin Timberlake","album":"Trolls","released":2016},{"id":2,"title":"Mom","artist":"Meghan Trainor, Kelli Trainor","album":"Thank You","released":2016},{"id":3,"title":"Team","artist":"Iggy Azalea","album":null,"released":2016},{"id":4,"title":"Ghostbusters (I'm not a fraid)","artist":"Fall Out Boy, Missy Elliott","album":"Ghostbusters","released":2016},{"id":5,"title":"Bad Things","artist":"Camila Cabello, Machine Gun Kelly","album":"Bloom","released":2017},{"id":6,"title":"I Took a Pill in Ibiza","artist":"Mike Posner","album":"At Night, Alone.","released":2016},{"id":7,"title":"i hate u, i love u","artist":"Gnash","album":"Top Hits 2017","released":2017},{"id":8,"title":"No","artist":"Meghan Trainor","album":"Thank You","released":2016},{"id":9,"title":"Private Show","artist":"Britney Spears","album":"Glory","released":2016},{"id":10,"title":"7 Years","artist":"Lukas Graham","album":"Lukas Graham (Blue Album)","released":2015}]
+ 
+-------------------------------------------------------------------------------------------------
+--- REQUESTING SONG NUMBER 7 IN XML --------
+{"id":7,"title":"i hate u, i love u","artist":"Gnash","album":"Top Hits 2017","released":2017}
+=  
+-------------------------------------------------------------------------------------------------
+--- POSTING A SONG IN JSON ------------------
+"Song 1. Song von 1. Kuenstler aus dem Album null erschienen in 1111 mit der Id 11 hinzugefuegt"=  
+-------------------------------------------------------------------------------------------------
+--- REQUESTING THE NEW SONG NUMBER IN JSON --
+{"id":11,"title":"1. Song","artist":"1. Kuenstler","album":null,"released":1111}
+=  
+-------------------------------------------------------------------------------------------------
+--- POSTING ANOTHER SONG IN XML ------------
+Fehler. Die JSON payload war leider nicht wohlgeformt oder invalide.=  
+-------------------------------------------------------------------------------------------------
+--- BAD REQUESTS ---------------
+--- GET WITH NO-ACCEPT ---------------
+{"id":7,"title":"i hate u, i love u","artist":"Gnash","album":"Top Hits 2017","released":2017}
+=  
+-------------------------------------------------------------------------------------------------
+--- GET WITH BAD ACCEPT ---------------
+{"id":7,"title":"i hate u, i love u","artist":"Gnash","album":"Top Hits 2017","released":2017}
+=  
+-------------------------------------------------------------------------------------------------
+--- GET WITH NON-EXISTING ID ---------------
+Fehler, Song mit Id 22 nicht vorhanden
+=  
+-------------------------------------------------------------------------------------------------
+--- GET WITH BAD ID ---------------
+Fehler. Falsches Format fuer Parameter songId angegeben
+=  
+-------------------------------------------------------------------------------------------------
+--- GET WITH NO PARAM ---------------
+Fehler, bitte mit Parameter songId oder all versuchen. Bsp. ?songId="1" oder ?all
+=  
+-------------------------------------------------------------------------------------------------
+--- POSTING A NON-XML LOVE SONG ----
+Fehler. Die JSON payload war leider nicht wohlgeformt oder invalide.=  
+-------------------------------------------------------------------------------------------------
+--- SHUTTING DOWN TOMCAT -----------

@@ -9,11 +9,11 @@ public class User {
 	String userId;
 	String firstName;
 	String lastName;
-	
 
 	
 
-	private User() {}
+
+	public User() {}
 
 	public User(User.Builder builder) {
 		this(builder.getId(), builder.getFirstName(), builder.getLastName());
